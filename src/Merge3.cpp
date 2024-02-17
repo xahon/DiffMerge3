@@ -172,6 +172,13 @@ namespace DiffMerge3
 			{
 				current_head = &chunks[i];
 
+				if (current_head->stable && group_begin->stable)
+				{
+					left_started = true;
+					right_started = true;
+					base_started = true;
+				}
+
 				if (current_head->stable == group_begin->stable)
 				{
 					if (!left_started && current_head->span_left.size() > 0)
